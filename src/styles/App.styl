@@ -1,0 +1,33 @@
+@require './Breakpoints.styl'
+
+#App
+	height 100vh
+	width 100vw
+	display flex
+	align-items center
+	justify-content center
+	perspective 1em
+
+	#bg
+		position absolute
+		left 0
+		top 0
+		width 100vw
+		height 100vh
+		z-index -1
+
+	#letters-wrapper
+		display inline-block
+		text-align center
+		font-size 1em
+		font-weight bold
+		+is-phone()
+			font-size 2.5em
+		+is-tablet()
+			font-size 3em
+		+is-netbook()
+			font-size 3.5em
+		+is-laptop()
+			font-size 4em
+		+is-desktop()
+			font-size 4.5em
