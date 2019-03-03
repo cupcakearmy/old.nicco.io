@@ -8,8 +8,6 @@ steps:
       - node -v
       - npm -v
       - npm i
-
-
 #pipeline:
 #
 #  install:
