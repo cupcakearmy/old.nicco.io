@@ -1,39 +1,50 @@
-pipeline:
+kind: pipeline
+name: default
 
-  install:
+steps:
+  - name: install
     image: node:11-alpine
     commands:
       - node -v
       - npm -v
       - npm i
 
-  build:
-    image: node:11-alpine
-    commands:
-      - npm run build:prod
-
-  copy:
-    image: appleboy/drone-scp
-    host: nicco.io
-    username: deploy
-    port: 1312
-    secrets: [ ssh_key ]
-    target: /srv/web/home
-    source:
-      - ./public
-      - ./docker-compose.yml
-      - ./docker-compose.prod.yml
-    when:
-      event: push
-      branch: master
-
-  run:
-    image: appleboy/drone-ssh
-    host: nicco.io
-    username: deploy
-    port: 1312
-    secrets: [ ssh_key ]
-    script:
-      - cd /srv/web/home
-      - docker-compose -f docker-compose.yml -f docker-compose.prod.yml down
-      - docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+#pipeline:
+#
+#  install:
+#    image: node:11-alpine
+#    commands:
+#      - node -v
+#      - npm -v
+#      - npm i
+#
+#  build:
+#    image: node:11-alpine
+#    commands:
+#      - npm run build:prod
+#
+#  copy:
+#    image: appleboy/drone-scp
+#    host: nicco.io
+#    username: deploy
+#    port: 1312
+#    secrets: [ ssh_key ]
+#    target: /srv/web/home
+#    source:
+#      - ./public
+#      - ./docker-compose.yml
+#      - ./docker-compose.prod.yml
+#    when:
+#      event: push
+#      branch: master
+#
+#  run:
+#    image: appleboy/drone-ssh
+#    host: nicco.io
+#    username: deploy
+#    port: 1312
+#    secrets: [ ssh_key ]
+#    script:
+#      - cd /srv/web/home
+#      - docker-compose -f docker-compose.yml -f docker-compose.prod.yml down
+#      - docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
