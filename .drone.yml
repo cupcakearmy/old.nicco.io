@@ -16,7 +16,9 @@ steps:
 
   - name: copy
     image: appleboy/drone-scp
-    secrets: [ ssh_key ]
+    environment:
+      PLUGIN_KEY:
+        from_secret: ssh_key
     settings:
       host: nicco.io
       username: root
@@ -33,7 +35,9 @@ steps:
 
   - name: run
     image: appleboy/drone-ssh
-    secrets: [ ssh_key ]
+    environment:
+      PLUGIN_KEY:
+        from_secret: ssh_key
     settings:
       host: nicco.io
       username: root
