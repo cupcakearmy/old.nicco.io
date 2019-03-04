@@ -7,7 +7,7 @@ steps:
     commands:
       - node -v
       - npm -v
-      - touch test
+      - npm i
 
   - name: build
     image: node:11-alpine
