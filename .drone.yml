@@ -16,26 +16,28 @@ steps:
 
   - name: copy
     image: appleboy/drone-scp
-    host: nicco.io
-    username: root
-    port: 1312
-    secrets: [ ssh_key ]
-    target: /srv/web/home
-    source:
-      - ./public
-      - ./docker-compose.yml
-      - ./docker-compose.prod.yml
     when:
       event: push
       branch: master
+    settings:
+      host: nicco.io
+      username: root
+      port: 1312
+      secrets: [ ssh_key ]
+      target: /srv/web/home
+      source:
+        - ./public
+        - ./docker-compose.yml
+        - ./docker-compose.prod.yml
 
   - name: run
     image: appleboy/drone-ssh
-    host: nicco.io
-    username: root
-    port: 1312
-    secrets: [ ssh_key ]
-    script:
-      - cd /srv/web/home
-      - docker-compose -f docker-compose.yml -f docker-compose.prod.yml down
-      - docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+    settings:
+      host: nicco.io
+      username: root
+      port: 1312
+      secrets: [ ssh_key ]
+      script:
+        - cd /srv/web/home
+        - docker-compose -f docker-compose.yml -f docker-compose.prod.yml down
+        - docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
