@@ -1,16 +1,12 @@
 import { useEffect, useState } from 'react'
 
-const getSize = () => {
-	const { innerHeight, innerWidth, outerHeight, outerWidth } = window
-	return { innerHeight, innerWidth, outerHeight, outerWidth }
-}
 
-export const useIsMousePresent = ()=> {
+export const useIsMousePresent = () => {
 	let [present, setPresent] = useState<boolean>(false)
 
 	useEffect(() => {
-		const enter = ()=> setPresent(true)
-		const leave = ()=> setPresent(false)
+		const enter = () => setPresent(true)
+		const leave = () => setPresent(false)
 		window.document.addEventListener('mouseenter', enter)
 		window.document.addEventListener('mouseleave', leave)
 		return () => {
