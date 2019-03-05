@@ -6,7 +6,7 @@ const getSize = () => {
 }
 
 export const useIsMousePresent = ()=> {
-	let [present, setPresent] = useState<boolean>(true)
+	let [present, setPresent] = useState<boolean>(false)
 
 	useEffect(() => {
 		const enter = ()=> setPresent(true)
