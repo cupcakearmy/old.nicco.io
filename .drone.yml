@@ -2,9 +2,9 @@ kind: pipeline
 name: default
 
 steps:
-
   - name: build
     image: node:11-alpine
+    pull: always
     commands:
       - node -v
       - npm -v
@@ -12,23 +12,23 @@ steps:
       - npm run build:prod
 
   - name: deploy
-      image: cupcakearmy/drone-deploy
-      pull: always
-      environment:
-        PLUGIN_KEY:
-          from_secret: ssh_key
-      settings:
-        host: nicco.io
-        user: root
-        port: 1312
-        target: /srv/web/home
-        sources:
-          - ./public
-          - ./docker-compose.yml
-          - ./docker-compose.prod.yml
-        commands:
-          - docker-compose -f docker-compose.yml -f docker-compose.prod.yml down
-          - docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
-      when:
-        event: push
-        branch: master
+    image: cupcakearmy/drone-deploy
+    pull: always
+    environment:
+      PLUGIN_KEY:
+        from_secret: ssh_key
+    settings:
+      host: nicco.io
+      user: root
+      port: 1312
+      target: /srv/web/home
+      sources:
+        - ./public
+        - ./docker-compose.yml
+        - ./docker-compose.prod.yml
+      commands:
+        - docker-compose -f docker-compose.yml -f docker-compose.prod.yml down
+        - docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+    when:
+      event: push
+      branch: master
