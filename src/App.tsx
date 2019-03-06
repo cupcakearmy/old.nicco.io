@@ -1,25 +1,22 @@
 import React from 'react'
+
 import AnimatedBackground from './Components/AnimatedBackground'
 import Cursor from './Components/Cursor'
+import Parallax from './Components/Parallax'
 import Letters from './Screens/Letters'
-import { useMousePosition } from './util'
 
 export const Duration = 4000
 
 const App: React.FC = () => {
 
-	const mouse = useMousePosition()
-
-	const convertToDeg = (current: number, factor: number) => `${(.5 - current) * factor}deg`
-
 	return <div id="App">
-		<section id={'letters-container'} style={{
-			transform: `rotateX(${convertToDeg(mouse.relative.y, 2)}) rotateY(${convertToDeg(mouse.relative.x, .5)})`,
-		}}>
-			<h1>
-				<Letters/>
-			</h1>
-		</section>
+		<Parallax>
+			<section id={'letters-container'}>
+				<h1>
+					<Letters/>
+				</h1>
+			</section>
+		</Parallax>
 
 		<div id={'bg'}>
 			<AnimatedBackground/>
@@ -28,7 +25,7 @@ const App: React.FC = () => {
 		<Cursor/>
 
 		<footer>
-			<span>dev.</span>
+			<span>developer.</span>
 			<br/>
 			<span>say <a href={'mailto:hi@nicco.io'}>hi@nicco.io</a></span>
 		</footer>
