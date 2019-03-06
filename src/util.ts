@@ -18,6 +18,47 @@ export const useIsMousePresent = () => {
 	return present
 }
 
+type Orientation = {
+	x: number,
+	y: number,
+	z: number,
+}
+
+export const useOrientation = (useInitialDelta: boolean = false): Orientation | undefined => {
+
+	const [orientation, setOrientation] = useState<DeviceAcceleration | undefined>()
+	const [initial, setInitial] = useState<DeviceAcceleration>()
+
+	useEffect(() => {
+		if (!initial)
+			setInitial(orientation)
+	}, [orientation, initial])
+
+	useEffect(() => {
+		const handleOrientation = (event: DeviceMotionEvent) => {
+			setOrientation(event.accelerationIncludingGravity || undefined)
+		}
+		window.addEventListener('devicemotion', handleOrientation, true)
+		return () => window.removeEventListener('devicemotion', handleOrientation, true)
+	}, [])
+
+	if (!orientation || !orientation.x || !orientation.y || !orientation.z) return
+
+	if (!useInitialDelta) return {
+		x: orientation.x || 0,
+		y: orientation.y || 0,
+		z: orientation.z || 0,
+	}
+
+	if (initial && orientation && initial.x && initial.y && initial.z) return {
+		x: orientation.x - initial.x,
+		y: orientation.y - initial.y,
+		z: orientation.z - initial.z,
+	}
+
+	return
+}
+
 export const useMousePosition = () => {
 	let [position, setPosition] = useState({ absolute: { x: 0, y: 0 }, relative: { x: 0, y: 0 } })
 
