@@ -52,12 +52,12 @@ module.exports = {
             test: /\.styl$/,
             use: [MiniCssExtractPlugin.loader, 'css-loader', 'stylus-loader'],
         }, {
-            test: /\.(jpg|png|gif|svg|woff2?|ttf|eot|svg|otf)$/,
+            test: /\.(jpg|png|gif|svg|woff2?|ttf|eot|svg|otf|ico|webmanifest)$/,
             use: [{
                 loader: 'file-loader',
                 options: {
                     name: '[name].[ext]',
-                    outputPath: './assets/',
+                    outputPath: './',
                 },
             }],
         }]
