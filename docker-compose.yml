@@ -3,8 +3,8 @@ version: '3'
 services:
   home:
     image: nginx:alpine
-    restart: always
     ports:
-      - 80
+      - 80:80
     volumes:
       - ./public:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro

@@ -2,18 +2,21 @@
   "private": true,
   "scripts": {
     "build:dev": "webpack -d",
+    "build:dev:watch": "webpack -d -w",
     "build:prod": "webpack -p",
     "dev": "webpack-dev-server -d"
   },
   "dependencies": {
     "animejs": "^3.0.1",
     "react": "^16.8",
-    "react-dom": "^16.8"
+    "react-dom": "^16.8",
+    "react-router-dom": "^5.0.0"
   },
   "devDependencies": {
     "@types/animejs": "^2.0.1",
     "@types/react": "^16.8",
     "@types/react-dom": "^16.8",
+    "@types/react-router-dom": "^4.3.1",
     "awesome-typescript-loader": "^5",
     "css-loader": "^2",
     "file-loader": "^3",

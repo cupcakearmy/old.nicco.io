@@ -1,35 +1,23 @@
 import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import AnimatedBackground from './Components/AnimatedBackground'
-import Cursor from './Components/Cursor'
-import Parallax from './Components/Parallax'
-import Letters from './Screens/Letters'
+import Suspend from './Components/Suspend'
+
+const Home = React.lazy(() => import('./Screens/Home'))
+const Privacy = React.lazy(() => import('./Screens/Privacy'))
+const TOS = React.lazy(() => import('./Screens/TermsOfService'))
 
 export const Duration = 4000
 
 const App: React.FC = () => {
 
-	return <div id="App">
-		<Parallax>
-			<section id={'letters-container'}>
-				<h1>
-					<Letters/>
-				</h1>
-			</section>
-		</Parallax>
-
-		<div id={'bg'}>
-			<AnimatedBackground/>
-		</div>
-
-		<Cursor/>
-
-		<footer>
-			<span>developer.</span>
-			<br/>
-			<span>say <a href={'mailto:hi@nicco.io'}>hi@nicco.io</a></span>
-		</footer>
-	</div>
+	return <Router>
+		<Switch>
+			<Route exact path={'/privacy'} component={Suspend(Privacy)}/>
+			<Route exact path={'/terms-of-service'} component={Suspend(TOS)}/>
+			<Route component={Suspend(Home)}/>
+		</Switch>
+	</Router>
 }
 
 export default App
