@@ -4,9 +4,13 @@ import AnimatedBackground from '../Components/AnimatedBackground'
 import Cursor from '../Components/Cursor'
 import Parallax from '../Components/Parallax'
 import Letters from '../Screens/Letters'
+import { useInnerWindowSize } from '../util'
 
 const Home: React.FC = () => {
-	return <div id="home">
+
+	const {height, width} = useInnerWindowSize()
+
+	return <div id="home" style={{width: width + 'px', height: height + 'px'}}>
 		<Parallax>
 			<section id={'letters-container'}>
 				<h1>

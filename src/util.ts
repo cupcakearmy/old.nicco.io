@@ -1,5 +1,22 @@
 import { useEffect, useState } from 'react'
 
+type Size = { width: number, height: number }
+export const useInnerWindowSize = (): Size => {
+	const getCurrentSize = (): Size => ({
+		height: window.innerHeight,
+		width: window.innerWidth,
+	})
+
+	let [size, setSize] = useState<Size>(getCurrentSize)
+
+	useEffect(() => {
+		const handle = () => setSize(getCurrentSize())
+		window.addEventListener('resize', handle)
+		return () => window.removeEventListener('resize', handle)
+	}, [])
+
+	return size
+}
 
 export const useIsMousePresent = () => {
 	let [present, setPresent] = useState<boolean>(false)
