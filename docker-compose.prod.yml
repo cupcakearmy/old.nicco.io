@@ -2,6 +2,12 @@ version: '3'
 
 services:
   home:
+    image: nginx:alpine
+    restart: always
+    ports:
+      - 80
+    volumes:
+      - ./public:/usr/share/nginx/html:ro
     networks:
       - traefik
     labels:
