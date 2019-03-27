@@ -8,9 +8,9 @@ import { useInnerWindowSize } from '../util'
 
 const Home: React.FC = () => {
 
-	const {height, width} = useInnerWindowSize()
+	const { height, width } = useInnerWindowSize()
 
-	return <div id="home" style={{width: width + 'px', height: height + 'px'}}>
+	return <div id="home" style={{ width: width + 'px', height: height + 'px' }}>
 		<Parallax>
 			<section id={'letters-container'}>
 				<h1>
@@ -28,7 +28,13 @@ const Home: React.FC = () => {
 		<footer>
 			<span>developer.</span>
 			<br/>
-			<span>say <a href={'mailto:hi@nicco.io'}>hi@nicco.io</a></span>
+			<span>say <a className={'email'} href={'mailto:hi@nicco.io'}>hi@nicco.io</a></span>
+			<br/>
+			<span>
+				<small>
+					<a href={'/privacy'}>privacy</a> - <a href={'/terms-of-service'}>terms of service</a>
+				</small>
+			</span>
 		</footer>
 	</div>
 }
