@@ -11,6 +11,11 @@ const Home: React.FC = () => {
 	const { height, width } = useInnerWindowSize()
 
 	return <div id="home" style={{ width: width + 'px', height: height + 'px' }}>
+		<header className={'fixed'}>
+			<span><a href={'https://blog.nicco.io'}>blog</a></span>
+			<span><a href={'https://github.com/cupcakearmy'}>github</a></span>
+		</header>
+
 		<Parallax>
 			<section id={'letters-container'}>
 				<h1>
@@ -25,10 +30,10 @@ const Home: React.FC = () => {
 
 		<Cursor/>
 
-		<footer>
+		<footer className={'fixed'}>
 			<span>developer.</span>
 			<br/>
-			<span>say <a className={'email'} href={'mailto:hi@nicco.io'}>hi@nicco.io</a></span>
+			<span><a href={'mailto:hi@nicco.io'}>say <b>hi@nicco.io</b></a></span>
 			<br/>
 			<span>
 				<small>

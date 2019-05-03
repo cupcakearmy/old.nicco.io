@@ -1,34 +1,70 @@
 @require './Breakpoints.styl'
 
 #home
-	height 100vh
-	width 100vw
-	display flex
-	align-items center
-	justify-content center
-	perspective 1em
-	cursor none
+  height 100vh
+  width 100vw
+  display flex
+  align-items center
+  justify-content center
+  perspective 1em
+  cursor none
 
-	#bg
-		position absolute
-		left 0
-		top 0
-		width 100vw
-		height 100vh
-		z-index -1
+  #bg
+    position absolute
+    left 0
+    top 0
+    width 100vw
+    height 100vh
+    z-index -1
 
-	#letters-wrapper
-		display inline-block
-		text-align center
-		font-size 1em
-		font-weight bold
-		+is-phone()
-			font-size 2.5em
-		+is-tablet()
-			font-size 3em
-		+is-netbook()
-			font-size 3.5em
-		+is-laptop()
-			font-size 4em
-		+is-desktop()
-			font-size 4.5em
+  #letters-wrapper
+    display inline-block
+    text-align center
+    font-size 1em
+    font-weight bold
+    +is-phone()
+      font-size 2.5em
+    +is-tablet()
+      font-size 3em
+    +is-netbook()
+      font-size 3.5em
+    +is-laptop()
+      font-size 4em
+    +is-desktop()
+      font-size 4.5em
+
+  footer
+    bottom 0
+    flex-direction column
+
+  header
+    top 0
+    flex-direction row
+
+    span
+      margin 0 .5em
+
+  .fixed
+    font-family 'Inconsolata', monospace
+    display flex
+    align-items center
+    justify-content center
+    font-size 1.2em
+    position absolute
+    left 0
+    text-align center
+    width 100vw
+    padding 1em
+    z-index 1
+
+    span
+      background-color hsla(0, 0%, 100%, 0.15)
+
+    a
+      cursor none
+      color inherit
+      transition all 100ms
+      display inline-block
+
+      &:hover
+        transform scale(1.2)
