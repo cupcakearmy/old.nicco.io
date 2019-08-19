@@ -4,6 +4,7 @@
     "build:dev": "webpack -d",
     "build:dev:watch": "webpack -d -w",
     "build:prod": "webpack -p",
+    "build:prod:watch": "webpack -p -w",
     "dev": "webpack-dev-server -d"
   },
   "dependencies": {
