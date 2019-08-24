@@ -5,49 +5,49 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
     entry: [
-        './index.tsx'
+        './index.tsx',
     ],
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'public')
+        path: path.resolve(__dirname, 'public'),
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx']
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        alias: {
+            'react': 'preact/compat',
+            'react-dom': 'preact/compat',
+        },
     },
     context: path.resolve(__dirname, 'src'),
     devServer: {
         contentBase: path.resolve(__dirname, 'public/assets'),
-        open: true,
+        historyApiFallback: true,
+        open: false,
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'index.html'
+            template: 'index.html',
         }),
         new MiniCssExtractPlugin({
-            filename: 'bundle.css'
-        })
+            filename: 'bundle.css',
+        }),
     ],
     stats: {
-		assets: true,
-		assetsSort: 'size',
-		all: false,
-		errors: true,
-		colors: true,
-		performance: true,
-		timings: true,
-	},
+        assets: true,
+        assetsSort: 'size',
+        all: false,
+        errors: true,
+        colors: true,
+        performance: true,
+        timings: true,
+    },
     module: {
         rules: [{
             test: /\.tsx?$/,
             loader: 'awesome-typescript-loader',
-        },
-        // {
-        //     test: /\.html$/,
-        //     use: ['html-loader']
-        // }, 
-        {
+        }, {
             test: /\.css$/,
-            use: [MiniCssExtractPlugin.loader, 'css-loader']
+            use: [MiniCssExtractPlugin.loader, 'css-loader'],
         }, {
             test: /\.styl$/,
             use: [MiniCssExtractPlugin.loader, 'css-loader', 'stylus-loader'],
@@ -60,6 +60,6 @@ module.exports = {
                     outputPath: './',
                 },
             }],
-        }]
-    }
+        }],
+    },
 }
