@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 
 services:
   home:
@@ -7,6 +7,7 @@ services:
     ports:
       - 80
     volumes:
+      - ./nginx.conf:/usr/local/nginx/conf/sites/default.conf:ro
       - ./public:/srv:ro
     networks:
       - traefik

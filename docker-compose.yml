@@ -1,10 +1,11 @@
-version: '3'
+version: '3.7'
 
 services:
   home:
-    image: nginx:alpine
+    image: cupcakearmy/static
+    restart: always
     ports:
       - 3000:80
     volumes:
-      - ./public:/usr/share/nginx/html:ro
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx.conf:/usr/local/nginx/conf/sites/default.conf:ro
+      - ./public:/srv:ro
