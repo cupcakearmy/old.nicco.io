@@ -3,13 +3,12 @@ name: default
 
 steps:
   - name: build
-    image: node:11-alpine
+    image: cupcakearmy/yarn
     pull: always
     commands:
       - node -v
-      - npm -v
-      - npm i
-      - npm run build:prod
+      - yarn
+      - yarn run build:prod
 
   - name: deploy
     image: cupcakearmy/drone-deploy
