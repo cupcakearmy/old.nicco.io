@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "animejs": "3",
-    "preact": "10.0.0-rc.1",
+    "react": "16",
+    "react-dom": "16",
     "react-router-dom": "5"
   },
   "devDependencies": {
