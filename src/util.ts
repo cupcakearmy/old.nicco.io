@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 
+
+
 type Size = { width: number, height: number }
 export const useInnerWindowSize = (): Size => {
 	const getCurrentSize = (): Size => ({
@@ -19,7 +21,7 @@ export const useInnerWindowSize = (): Size => {
 }
 
 export const useIsMousePresent = () => {
-	let [present, setPresent] = useState<boolean>(false)
+	let [present, setPresent] = useState<boolean>(!('ontouchstart' in window) && ('onmousemove' in window))
 
 	useEffect(() => {
 		const enter = () => setPresent(true)
