@@ -3,12 +3,12 @@ name: default
 
 steps:
   - name: build
-    image: cupcakearmy/yarn
+    image: cupcakearmy/pnpm
     pull: always
     commands:
       - node -v
-      - yarn
-      - yarn run build:prod
+      - pnpm --shamefully-flatten i
+      - pnpm run build:prod
 
   - name: deploy
     image: cupcakearmy/drone-deploy
