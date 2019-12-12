@@ -8,7 +8,7 @@ services:
       - 80
     volumes:
       - ./nginx.conf:/usr/local/nginx/conf/sites/default.conf:ro
-      - ./public:/srv:ro
+      - ./dist:/srv:ro
     networks:
       - traefik
     labels:
