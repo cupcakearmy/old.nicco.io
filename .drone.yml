@@ -3,12 +3,12 @@ name: default
 
 steps:
   - name: build
-    image: cupcakearmy/pnpm
+    image: node:12-alpine
     pull: always
     commands:
       - node -v
-      - pnpm --shamefully-flatten i
-      - pnpm run build:prod
+      - yarn
+      - yarn run build
 
   - name: deploy
     image: cupcakearmy/drone-deploy
@@ -22,7 +22,7 @@ steps:
       port: 1312
       target: /srv/web/home
       sources:
-        - ./public
+        - ./dist
         - ./docker-compose.prod.yml
         - ./nginx.conf
       commands:
