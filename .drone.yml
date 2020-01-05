@@ -23,6 +23,7 @@ steps:
       target: /srv/web/home
       sources:
         - ./Dockerfile
+        - ./docker-compose.prod.yml
         - ./package.json
         - ./yarn.lock
         - ./next.config.js
