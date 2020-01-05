@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Duration } from '../App'
-import { GoldenRatio, Rand } from '../util'
+
+import { Duration } from '../utils/config'
+import { GoldenRatio, Rand } from '../utils/utils'
+import '../styles/AnimatedBackground.styl'
+
+
 
 type Color = [number, number, number]
 
@@ -32,7 +36,7 @@ const AnimatedBackground: React.FC = () => {
 
 	return <div className={'animated-background'} style={{
 		backgroundImage: valuesToGradient(direction, start, end),
-	}}/>
+	}} />
 }
 
 export default AnimatedBackground

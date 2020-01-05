@@ -22,13 +22,15 @@ steps:
       port: 1312
       target: /srv/web/home
       sources:
-        - ./dist
-        - ./docker-compose.prod.yml
-        - ./nginx.conf
-      commands:
-        - docker-compose -f docker-compose.prod.yml pull
-        - docker-compose -f docker-compose.prod.yml down
-        - docker-compose -f docker-compose.prod.yml up -d
+        - ./Dockerfile
+        - ./package.json
+        - ./yarn.lock
+        - ./next.config.js
+        - ./.next
+        - ./public
+        commands:
+          - docker-compose -f docker-compose.prod.yml build
+          - docker-copmose -f docker-compose.prod.yml restart front
     when:
       event: push
       branch: master

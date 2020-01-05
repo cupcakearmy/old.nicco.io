@@ -2,11 +2,17 @@ import { useEffect, useState } from 'react'
 
 
 
-type Size = { width: number, height: number }
+type Size = { width: string, height: string }
 export const useInnerWindowSize = (): Size => {
+
+	if (typeof window === 'undefined') return {
+		width: '100vw',
+		height: '100vh',
+	}
+
 	const getCurrentSize = (): Size => ({
-		height: window.innerHeight,
-		width: window.innerWidth,
+		height: window.innerHeight + 'px',
+		width: window.innerWidth + 'px',
 	})
 
 	let [size, setSize] = useState<Size>(getCurrentSize)
@@ -104,9 +110,4 @@ export const useMousePosition = () => {
 	return position
 }
 
-export const Rand = (from: number = 0, to: number = 1, float: boolean = false) => {
-	const rand = (Math.random() * (to - from)) + from
-	return float ? rand : rand | 0
-}
 
-export const GoldenRatio: number = (1 + Math.sqrt(5)) / 2

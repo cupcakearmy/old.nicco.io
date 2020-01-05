@@ -1,5 +1,8 @@
 import React from 'react'
-import { useMousePosition, useOrientation } from '../util'
+
+import { useMousePosition, useOrientation } from '../utils/hooks'
+
+
 
 type RenderProps = {
 	x: string,

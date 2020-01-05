@@ -1,5 +1,8 @@
 import React from 'react'
-import { useIsMousePresent, useMousePosition } from '../util'
+
+import { useIsMousePresent, useMousePosition } from '../utils/hooks'
+
+
 
 const Cursor: React.FC = () => {
 	const mouse = useMousePosition()
@@ -15,7 +18,7 @@ const Cursor: React.FC = () => {
 			borderRadius: '1em',
 			transform: 'translate(-50%, -50%)',
 			backgroundColor: '#000000',
-		}}/>
+		}} />
 		: null
 }
 
