@@ -1,6 +1,9 @@
 import anime from 'animejs'
 import React, { useEffect, useRef } from 'react'
-import { Duration } from '../App'
+
+import { Duration } from '../utils/config'
+
+
 
 export type LettersProps = {
 	text: string

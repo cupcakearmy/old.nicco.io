@@ -1,4 +1,4 @@
-@require './Breakpoints.styl'
+@require 'Breakpoints.styl'
 
 #home
   height 100vh
@@ -20,19 +20,11 @@
   #letters-wrapper
     display inline-block
     text-align center
-    font-size 1em
+    font-size 16vw
     font-weight bold
-    +is-phone()
-      font-size 2.5em
-    +is-tablet()
-      font-size 3em
     +is-netbook()
-      font-size 3.5em
-    +is-laptop()
-      font-size 4em
-    +is-desktop()
-      font-size 4.5em
-
+      font-size 16vmin
+    
   footer
     bottom 0
     flex-direction column

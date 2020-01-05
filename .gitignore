@@ -1,9 +1,10 @@
+# Node
 node_modules
-package-lock.json
-yarn.lock
-public
-.cache
-dist
 
+# Build
+.cache
+.next
+
+# Editor
 .idea
 .vscode

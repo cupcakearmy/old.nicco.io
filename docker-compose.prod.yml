@@ -1,19 +1,18 @@
 version: '3.7'
 
 services:
-  home:
-    image: cupcakearmy/static
+  front:
+    build: .
     restart: always
-    ports:
-      - 80
     volumes:
-      - ./nginx.conf:/usr/local/nginx/conf/sites/default.conf:ro
-      - ./dist:/srv:ro
+      - ./.next:/app/.next:ro
+      - ./public:/app/public:ro
+      - ./next.config.js:/app/next.config.js:ro
     networks:
       - traefik
     labels:
       - traefik.enable=true
-      - traefik.port=80
+      - traefik.port=3000
       - traefik.docker.network=traefik
       - traefik.backend=home
       - traefik.frontend.rule=Host:nicco.io
