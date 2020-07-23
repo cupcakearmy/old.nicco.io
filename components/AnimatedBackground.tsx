@@ -20,7 +20,7 @@ const AnimatedBackground: React.FC = () => {
 
 	const update = () => {
 		const from = getRandomColor()
-		// Calculate cojugate color based on the golden ratio
+		// Calculate conjugate color based on the golden ratio
 		const to: Color = [Math.floor(from[0] + (255 * GoldenRatio * 2)) % 255, from[1], from[2]]
 
 		setStart(from)
