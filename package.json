@@ -8,17 +8,17 @@
   "dependencies": {
     "animejs": "3.x",
     "next": "9.x",
-    "react": "16.12.x",
-    "react-dom": "16.12.x"
+    "react": "16.13.x",
+    "react-dom": "16.13.x"
   },
   "devDependencies": {
     "@types/animejs": "3.x",
-    "@types/node": "^13.1.4",
+    "@types/node": "14.x.x",
     "@types/react": "16.9.x",
     "@types/react-dom": "16.9.x",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-stylus": "^1.0.1",
-    "stylus": "^0.54.7",
-    "typescript": "3.7.x"
+    "stylus": "0.54.x",
+    "typescript": "3.9.x"
   }
 }

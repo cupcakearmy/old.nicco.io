@@ -3,7 +3,7 @@
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
-    "rootDir": "./src",
+    "rootDir": ".",
     "removeComments": true,
     "strict": true,
     "noImplicitAny": true,
@@ -15,11 +15,7 @@
     "alwaysStrict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -27,12 +23,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }
